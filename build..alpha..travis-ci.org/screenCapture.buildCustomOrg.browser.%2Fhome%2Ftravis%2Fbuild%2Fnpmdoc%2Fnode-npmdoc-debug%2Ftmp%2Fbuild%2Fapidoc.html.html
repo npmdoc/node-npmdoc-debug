@@ -216,15 +216,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.debug.formatters.j">
-            function <span class="apidocSignatureSpan">debug.formatters.</span>j
-            <span class="apidocSignatureSpan">(v)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.debug.formatters.o">
             function <span class="apidocSignatureSpan">debug.formatters.</span>o
             <span class="apidocSignatureSpan">(v)</span>
@@ -492,36 +483,19 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function formatArgs(args) {
+  var name = this.namespace;
   var useColors = this.useColors;
 
-  args[0] = (useColors ? '%c' : '')
-    + this.namespace
-    + (useColors ? ' %c' : ' ')
-    + args[0]
-    + (useColors ? '%c ' : ' ')
-    + '+' + exports.humanize(this.diff);
+  if (useColors) {
+    var c = this.color;
+    var prefix = '  \u001b[3' + c + ';1m' + name + ' ' + '\u001b[0m';
 
-  if (!useColors) return;
-
-  var c = 'color: ' + this.color;
-  args.splice(1, 0, c, 'color: inherit')
-
-  // the final "%c" is somewhat tricky, because there could be other
-  // arguments passed either before or after the %c, so we need to
-  // figure out the correct index to insert the CSS into
-  var index = 0;
-  var lastC = 0;
-  args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if ('%%' === match) return;
-    index++;
-    if ('%c' === match) {
-      // we only are interested in the *last* %c
-      // (the user may have provided their own)
-      lastC = index;
-    }
-  });
-
-  args.splice(lastC, 0, c);
+    args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+    args.push('\u001b[3' + c + 'm+' + exports.humanize(this.diff) + '\u001b[0m');
+  } else {
+    args[0] = new Date().toUTCString()
+      + ' ' + name + ' ' + args[0];
+  }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -575,17 +549,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function load() {
-  var r;
-  try {
-    r = exports.storage.debug;
-  } catch(e) {}
-
-  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-  if (!r &amp;&amp; typeof process !== 'undefined' &amp;&amp; 'env' in process) {
-    r = process.env.DEBUG;
-  }
-
-  return r;
+  return process.env.DEBUG;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -600,11 +564,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function log() {
-  // this hackery is required for IE8/9, where
-  // the `console.log` function doesn't have 'apply'
-  return 'object' === typeof console
-    &amp;&amp; console.log
-    &amp;&amp; Function.prototype.apply.call(console.log, console, arguments);
+  return stream.write(util.format.apply(util, arguments) + '\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -619,13 +579,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
-  try {
-    if (null == namespaces) {
-      exports.storage.removeItem('debug');
-    } else {
-      exports.storage.debug = namespaces;
-    }
-  } catch(e) {}
+  if (null == namespaces) {
+    // If you set a process.env field to null or undefined, it gets cast to the
+    // string 'null' or 'undefined'. Just delete instead.
+    delete process.env.DEBUG;
+  } else {
+    process.env.DEBUG = namespaces;
+  }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -640,23 +600,9 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function useColors() {
-  // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we're in Chrome, we'll just detect this case
-  // explicitly
-  if (typeof window !== 'undefined' &amp;&amp; window &amp;&amp; typeof window.process !== 'undefined' &amp;&amp; window.process.type === 'renderer') {
-    return true;
-  }
-
-  // is webkit? http://stackoverflow.com/a/16459606/376773
-  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== 'undefined' &amp;&amp; document &amp;&amp; 'WebkitAppearance' in document.documentElement.style) ||
-    // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== 'undefined' &amp;&amp; window &amp;&amp; window.console &amp;&amp; (console.firebug || (console.exception &amp;&amp; console.table))) ||
-    // is firefox &gt;= v31?
-    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== 'undefined' &amp;&amp; navigator &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &amp;&amp; parseInt(RegExp.$1, 10) &gt;= 31) ||
-    // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== 'undefined' &amp;&amp; navigator &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+  return 'colors' in exports.inspectOpts
+    ? Boolean(exports.inspectOpts.colors)
+    : tty.isatty(fd);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -688,25 +634,6 @@
     <li>description and source-code<pre class="apidocCodePre">O = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.debug.formatters.j" id="apidoc.element.debug.formatters.j">
-        function <span class="apidocSignatureSpan">debug.formatters.</span>j
-        <span class="apidocSignatureSpan">(v)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">j = function (v) {
-  try {
-    return JSON.stringify(v);
-  } catch (err) {
-    return '[UnexpectedJSONParseError]: ' + err.message;
-  }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>

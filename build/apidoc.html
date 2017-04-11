@@ -223,15 +223,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.debug.formatters.j">
-            function <span class="apidocSignatureSpan">debug.formatters.</span>j
-            <span class="apidocSignatureSpan">(v)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.debug.formatters.o">
             function <span class="apidocSignatureSpan">debug.formatters.</span>o
             <span class="apidocSignatureSpan">(v)</span>
@@ -499,36 +490,19 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function formatArgs(args) {
+  var name = this.namespace;
   var useColors = this.useColors;
 
-  args[0] = (useColors ? &#x27;%c&#x27; : &#x27;&#x27;)
-    + this.namespace
-    + (useColors ? &#x27; %c&#x27; : &#x27; &#x27;)
-    + args[0]
-    + (useColors ? &#x27;%c &#x27; : &#x27; &#x27;)
-    + &#x27;+&#x27; + exports.humanize(this.diff);
+  if (useColors) {
+    var c = this.color;
+    var prefix = &#x27;  \u001b[3&#x27; + c + &#x27;;1m&#x27; + name + &#x27; &#x27; + &#x27;\u001b[0m&#x27;;
 
-  if (!useColors) return;
-
-  var c = &#x27;color: &#x27; + this.color;
-  args.splice(1, 0, c, &#x27;color: inherit&#x27;)
-
-  // the final &#x22;%c&#x22; is somewhat tricky, because there could be other
-  // arguments passed either before or after the %c, so we need to
-  // figure out the correct index to insert the CSS into
-  var index = 0;
-  var lastC = 0;
-  args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if (&#x27;%%&#x27; === match) return;
-    index++;
-    if (&#x27;%c&#x27; === match) {
-      // we only are interested in the *last* %c
-      // (the user may have provided their own)
-      lastC = index;
-    }
-  });
-
-  args.splice(lastC, 0, c);
+    args[0] = prefix + args[0].split(&#x27;\n&#x27;).join(&#x27;\n&#x27; + prefix);
+    args.push(&#x27;\u001b[3&#x27; + c + &#x27;m+&#x27; + exports.humanize(this.diff) + &#x27;\u001b[0m&#x27;);
+  } else {
+    args[0] = new Date().toUTCString()
+      + &#x27; &#x27; + name + &#x27; &#x27; + args[0];
+  }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -582,17 +556,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function load() {
-  var r;
-  try {
-    r = exports.storage.debug;
-  } catch(e) {}
-
-  // If debug isn&#x27;t set in LS, and we&#x27;re in Electron, try to load $DEBUG
-  if (!r &#x26;&#x26; typeof process !== &#x27;undefined&#x27; &#x26;&#x26; &#x27;env&#x27; in process) {
-    r = process.env.DEBUG;
-  }
-
-  return r;
+  return process.env.DEBUG;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -607,11 +571,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function log() {
-  // this hackery is required for IE8/9, where
-  // the `console.log` function doesn&#x27;t have &#x27;apply&#x27;
-  return &#x27;object&#x27; === typeof console
-    &#x26;&#x26; console.log
-    &#x26;&#x26; Function.prototype.apply.call(console.log, console, arguments);
+  return stream.write(util.format.apply(util, arguments) + &#x27;\n&#x27;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -626,13 +586,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
-  try {
-    if (null == namespaces) {
-      exports.storage.removeItem(&#x27;debug&#x27;);
-    } else {
-      exports.storage.debug = namespaces;
-    }
-  } catch(e) {}
+  if (null == namespaces) {
+    // If you set a process.env field to null or undefined, it gets cast to the
+    // string &#x27;null&#x27; or &#x27;undefined&#x27;. Just delete instead.
+    delete process.env.DEBUG;
+  } else {
+    process.env.DEBUG = namespaces;
+  }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -647,23 +607,9 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function useColors() {
-  // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we&#x27;re in Chrome, we&#x27;ll just detect this case
-  // explicitly
-  if (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; window &#x26;&#x26; typeof window.process !== &#x27;undefined&#x27; &#x26;&#x26; window.process.type === &#x27;renderer&#x27;) {
-    return true;
-  }
-
-  // is webkit? http://stackoverflow.com/a/16459606/376773
-  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== &#x27;undefined&#x27; &#x26;&#x26; document &#x26;&#x26; &#x27;WebkitAppearance&#x27; in document.documentElement.style) ||
-    // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; window &#x26;&#x26; window.console &#x26;&#x26; (console.firebug || (console.exception &#x26;&#x26; console.table))) ||
-    // is firefox &#x3e;= v31?
-    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== &#x27;undefined&#x27; &#x26;&#x26; navigator &#x26;&#x26; navigator.userAgent &#x26;&#x26; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &#x26;&#x26; parseInt(RegExp.$1, 10) &#x3e;= 31) ||
-    // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== &#x27;undefined&#x27; &#x26;&#x26; navigator &#x26;&#x26; navigator.userAgent &#x26;&#x26; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+  return &#x27;colors&#x27; in exports.inspectOpts
+    ? Boolean(exports.inspectOpts.colors)
+    : tty.isatty(fd);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -695,25 +641,6 @@
     <li>description and source-code<pre class="apidocCodePre">O = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.debug.formatters.j" id="apidoc.element.debug.formatters.j">
-        function <span class="apidocSignatureSpan">debug.formatters.</span>j
-        <span class="apidocSignatureSpan">(v)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">j = function (v) {
-  try {
-    return JSON.stringify(v);
-  } catch (err) {
-    return &#x27;[UnexpectedJSONParseError]: &#x27; + err.message;
-  }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>

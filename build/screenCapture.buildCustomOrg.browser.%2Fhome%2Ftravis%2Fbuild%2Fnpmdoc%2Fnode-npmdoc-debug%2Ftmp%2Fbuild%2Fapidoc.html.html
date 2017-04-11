@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/visionmedia/debug#readme"
-
-    >debug (v2.6.3)</a>
+    <a href="https://github.com/visionmedia/debug#readme">debug (v2.6.3)</a>
 </h1>
 <h4>small debugging utility</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.debug">module debug</a><ol>
 
@@ -263,29 +256,29 @@
 
     // turn the `arguments` into a proper Array
     var args = new Array(arguments.length);
-    for (var i = 0; i &#x3c; args.length; i++) {
+    for (var i = 0; i &lt; args.length; i++) {
       args[i] = arguments[i];
     }
 
     args[0] = exports.coerce(args[0]);
 
-    if (&#x27;string&#x27; !== typeof args[0]) {
-      // anything else let&#x27;s inspect with %O
-      args.unshift(&#x27;%O&#x27;);
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
     }
 
     // apply any `formatters` transformations
     var index = 0;
     args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don&#x27;t increase the array index
-      if (match === &#x27;%%&#x27;) return match;
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
       index++;
       var formatter = exports.formatters[format];
-      if (&#x27;function&#x27; === typeof formatter) {
+      if ('function' === typeof formatter) {
         var val = args[index];
         match = formatter.call(self, val);
 
-        // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+        // now we need to remove `args[index]` since it's inlined in the `format`
         args.splice(index, 1);
         index--;
       }
@@ -305,7 +298,7 @@
   debug.color = selectColor(namespace);
 
   // env-specific initialization logic for debug instances
-  if (&#x27;function&#x27; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.init(debug);
   }
 
@@ -357,29 +350,29 @@
 
     // turn the `arguments` into a proper Array
     var args = new Array(arguments.length);
-    for (var i = 0; i &#x3c; args.length; i++) {
+    for (var i = 0; i &lt; args.length; i++) {
       args[i] = arguments[i];
     }
 
     args[0] = exports.coerce(args[0]);
 
-    if (&#x27;string&#x27; !== typeof args[0]) {
-      // anything else let&#x27;s inspect with %O
-      args.unshift(&#x27;%O&#x27;);
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
     }
 
     // apply any `formatters` transformations
     var index = 0;
     args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don&#x27;t increase the array index
-      if (match === &#x27;%%&#x27;) return match;
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
       index++;
       var formatter = exports.formatters[format];
-      if (&#x27;function&#x27; === typeof formatter) {
+      if ('function' === typeof formatter) {
         var val = args[index];
         match = formatter.call(self, val);
 
-        // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+        // now we need to remove `args[index]` since it's inlined in the `format`
         args.splice(index, 1);
         index--;
       }
@@ -399,7 +392,7 @@
   debug.color = selectColor(namespace);
 
   // env-specific initialization logic for debug instances
-  if (&#x27;function&#x27; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.init(debug);
   }
 
@@ -418,7 +411,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function disable() {
-  exports.enable(&#x27;&#x27;);
+  exports.enable('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -438,16 +431,16 @@
   exports.names = [];
   exports.skips = [];
 
-  var split = (namespaces || &#x27;&#x27;).split(/[\s,]+/);
+  var split = (namespaces || '').split(/[\s,]+/);
   var len = split.length;
 
-  for (var i = 0; i &#x3c; len; i++) {
+  for (var i = 0; i &lt; len; i++) {
     if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, &#x27;.*?&#x27;);
-    if (namespaces[0] === &#x27;-&#x27;) {
-      exports.skips.push(new RegExp(&#x27;^&#x27; + namespaces.substr(1) + &#x27;$&#x27;));
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
     } else {
-      exports.names.push(new RegExp(&#x27;^&#x27; + namespaces + &#x27;$&#x27;));
+      exports.names.push(new RegExp('^' + namespaces + '$'));
     }
   }
 }</pre></li>
@@ -465,12 +458,12 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function enabled(name) {
   var i, len;
-  for (i = 0, len = exports.skips.length; i &#x3c; len; i++) {
+  for (i = 0, len = exports.skips.length; i &lt; len; i++) {
     if (exports.skips[i].test(name)) {
       return false;
     }
   }
-  for (i = 0, len = exports.names.length; i &#x3c; len; i++) {
+  for (i = 0, len = exports.names.length; i &lt; len; i++) {
     if (exports.names[i].test(name)) {
       return true;
     }
@@ -495,13 +488,13 @@
 
   if (useColors) {
     var c = this.color;
-    var prefix = &#x27;  \u001b[3&#x27; + c + &#x27;;1m&#x27; + name + &#x27; &#x27; + &#x27;\u001b[0m&#x27;;
+    var prefix = '  \u001b[3' + c + ';1m' + name + ' ' + '\u001b[0m';
 
-    args[0] = prefix + args[0].split(&#x27;\n&#x27;).join(&#x27;\n&#x27; + prefix);
-    args.push(&#x27;\u001b[3&#x27; + c + &#x27;m+&#x27; + exports.humanize(this.diff) + &#x27;\u001b[0m&#x27;);
+    args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+    args.push('\u001b[3' + c + 'm+' + exports.humanize(this.diff) + '\u001b[0m');
   } else {
     args[0] = new Date().toUTCString()
-      + &#x27; &#x27; + name + &#x27; &#x27; + args[0];
+      + ' ' + name + ' ' + args[0];
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -519,14 +512,14 @@
     <li>description and source-code<pre class="apidocCodePre">humanize = function (val, options) {
   options = options || {}
   var type = typeof val
-  if (type === &#x27;string&#x27; &#x26;&#x26; val.length &#x3e; 0) {
+  if (type === 'string' &amp;&amp; val.length &gt; 0) {
     return parse(val)
-  } else if (type === &#x27;number&#x27; &#x26;&#x26; isNaN(val) === false) {
+  } else if (type === 'number' &amp;&amp; isNaN(val) === false) {
     return options.long ?
 			fmtLong(val) :
 			fmtShort(val)
   }
-  throw new Error(&#x27;val is not a non-empty string or a valid number. val=&#x27; + JSON.stringify(val))
+  throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(val))
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -571,7 +564,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function log() {
-  return stream.write(util.format.apply(util, arguments) + &#x27;\n&#x27;);
+  return stream.write(util.format.apply(util, arguments) + '\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -588,7 +581,7 @@
     <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
   if (null == namespaces) {
     // If you set a process.env field to null or undefined, it gets cast to the
-    // string &#x27;null&#x27; or &#x27;undefined&#x27;. Just delete instead.
+    // string 'null' or 'undefined'. Just delete instead.
     delete process.env.DEBUG;
   } else {
     process.env.DEBUG = namespaces;
@@ -607,7 +600,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function useColors() {
-  return &#x27;colors&#x27; in exports.inspectOpts
+  return 'colors' in exports.inspectOpts
     ? Boolean(exports.inspectOpts.colors)
     : tty.isatty(fd);
 }</pre></li>
@@ -657,7 +650,7 @@
     <li>description and source-code<pre class="apidocCodePre">o = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts)
-    .replace(/\s*\n\s*/g, &#x27; &#x27;);
+    .replace(/\s*\n\s*/g, ' ');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -671,3 +664,4 @@
     ]
 </div>
 </div>
+</body></html>
