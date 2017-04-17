@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/visionmedia/debug#readme"
-
-    >debug (v2.6.3)</a>
+    <a href="https://github.com/visionmedia/debug#readme">debug (v2.6.3)</a>
 </h1>
 <h4>small debugging utility</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.debug">module debug</a><ol>
 
@@ -525,29 +518,29 @@
 
     // turn the `arguments` into a proper Array
     var args = new Array(arguments.length);
-    for (var i = 0; i &#x3c; args.length; i++) {
+    for (var i = 0; i &lt; args.length; i++) {
       args[i] = arguments[i];
     }
 
     args[0] = exports.coerce(args[0]);
 
-    if (&#x27;string&#x27; !== typeof args[0]) {
-      // anything else let&#x27;s inspect with %O
-      args.unshift(&#x27;%O&#x27;);
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
     }
 
     // apply any `formatters` transformations
     var index = 0;
     args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don&#x27;t increase the array index
-      if (match === &#x27;%%&#x27;) return match;
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
       index++;
       var formatter = exports.formatters[format];
-      if (&#x27;function&#x27; === typeof formatter) {
+      if ('function' === typeof formatter) {
         var val = args[index];
         match = formatter.call(self, val);
 
-        // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+        // now we need to remove `args[index]` since it's inlined in the `format`
         args.splice(index, 1);
         index--;
       }
@@ -567,7 +560,7 @@
   debug.color = selectColor(namespace);
 
   // env-specific initialization logic for debug instances
-  if (&#x27;function&#x27; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.init(debug);
   }
 
@@ -619,29 +612,29 @@
 
     // turn the `arguments` into a proper Array
     var args = new Array(arguments.length);
-    for (var i = 0; i &#x3c; args.length; i++) {
+    for (var i = 0; i &lt; args.length; i++) {
       args[i] = arguments[i];
     }
 
     args[0] = exports.coerce(args[0]);
 
-    if (&#x27;string&#x27; !== typeof args[0]) {
-      // anything else let&#x27;s inspect with %O
-      args.unshift(&#x27;%O&#x27;);
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
     }
 
     // apply any `formatters` transformations
     var index = 0;
     args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don&#x27;t increase the array index
-      if (match === &#x27;%%&#x27;) return match;
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
       index++;
       var formatter = exports.formatters[format];
-      if (&#x27;function&#x27; === typeof formatter) {
+      if ('function' === typeof formatter) {
         var val = args[index];
         match = formatter.call(self, val);
 
-        // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+        // now we need to remove `args[index]` since it's inlined in the `format`
         args.splice(index, 1);
         index--;
       }
@@ -661,7 +654,7 @@
   debug.color = selectColor(namespace);
 
   // env-specific initialization logic for debug instances
-  if (&#x27;function&#x27; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.init(debug);
   }
 
@@ -680,7 +673,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function disable() {
-  exports.enable(&#x27;&#x27;);
+  exports.enable('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -700,16 +693,16 @@
   exports.names = [];
   exports.skips = [];
 
-  var split = (namespaces || &#x27;&#x27;).split(/[\s,]+/);
+  var split = (namespaces || '').split(/[\s,]+/);
   var len = split.length;
 
-  for (var i = 0; i &#x3c; len; i++) {
+  for (var i = 0; i &lt; len; i++) {
     if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, &#x27;.*?&#x27;);
-    if (namespaces[0] === &#x27;-&#x27;) {
-      exports.skips.push(new RegExp(&#x27;^&#x27; + namespaces.substr(1) + &#x27;$&#x27;));
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
     } else {
-      exports.names.push(new RegExp(&#x27;^&#x27; + namespaces + &#x27;$&#x27;));
+      exports.names.push(new RegExp('^' + namespaces + '$'));
     }
   }
 }</pre></li>
@@ -727,12 +720,12 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function enabled(name) {
   var i, len;
-  for (i = 0, len = exports.skips.length; i &#x3c; len; i++) {
+  for (i = 0, len = exports.skips.length; i &lt; len; i++) {
     if (exports.skips[i].test(name)) {
       return false;
     }
   }
-  for (i = 0, len = exports.names.length; i &#x3c; len; i++) {
+  for (i = 0, len = exports.names.length; i &lt; len; i++) {
     if (exports.names[i].test(name)) {
       return true;
     }
@@ -754,27 +747,27 @@
     <li>description and source-code<pre class="apidocCodePre">function formatArgs(args) {
   var useColors = this.useColors;
 
-  args[0] = (useColors ? &#x27;%c&#x27; : &#x27;&#x27;)
+  args[0] = (useColors ? '%c' : '')
     + this.namespace
-    + (useColors ? &#x27; %c&#x27; : &#x27; &#x27;)
+    + (useColors ? ' %c' : ' ')
     + args[0]
-    + (useColors ? &#x27;%c &#x27; : &#x27; &#x27;)
-    + &#x27;+&#x27; + exports.humanize(this.diff);
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
 
   if (!useColors) return;
 
-  var c = &#x27;color: &#x27; + this.color;
-  args.splice(1, 0, c, &#x27;color: inherit&#x27;)
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit')
 
-  // the final &#x22;%c&#x22; is somewhat tricky, because there could be other
+  // the final "%c" is somewhat tricky, because there could be other
   // arguments passed either before or after the %c, so we need to
   // figure out the correct index to insert the CSS into
   var index = 0;
   var lastC = 0;
   args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if (&#x27;%%&#x27; === match) return;
+    if ('%%' === match) return;
     index++;
-    if (&#x27;%c&#x27; === match) {
+    if ('%c' === match) {
       // we only are interested in the *last* %c
       // (the user may have provided their own)
       lastC = index;
@@ -815,7 +808,7 @@
   try {
     return JSON.stringify(v);
   } catch (err) {
-    return &#x27;[UnexpectedJSONParseError]: &#x27; + err.message;
+    return '[UnexpectedJSONParseError]: ' + err.message;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -833,7 +826,7 @@
     <li>description and source-code<pre class="apidocCodePre">formatters.o = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts)
-    .replace(/\s*\n\s*/g, &#x27; &#x27;);
+    .replace(/\s*\n\s*/g, ' ');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -850,14 +843,14 @@
     <li>description and source-code<pre class="apidocCodePre">humanize = function (val, options) {
   options = options || {}
   var type = typeof val
-  if (type === &#x27;string&#x27; &#x26;&#x26; val.length &#x3e; 0) {
+  if (type === 'string' &amp;&amp; val.length &gt; 0) {
     return parse(val)
-  } else if (type === &#x27;number&#x27; &#x26;&#x26; isNaN(val) === false) {
+  } else if (type === 'number' &amp;&amp; isNaN(val) === false) {
     return options.long ?
 			fmtLong(val) :
 			fmtShort(val)
   }
-  throw new Error(&#x27;val is not a non-empty string or a valid number. val=&#x27; + JSON.stringify(val))
+  throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(val))
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -890,24 +883,24 @@
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: &#x27;&#x27;,
+    basePath: '',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [&#x27;mocha&#x27;, &#x27;chai&#x27;, &#x27;sinon&#x27;],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      &#x27;dist/debug.js&#x27;,
-      &#x27;test/*spec.js&#x27;
+      'dist/debug.js',
+      'test/*spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      &#x27;src/node.js&#x27;
+      'src/node.js'
     ],
 
 
@@ -917,9 +910,9 @@
     },
 
     // test results reporter to use
-    // possible values: &#x27;dots&#x27;, &#x27;progress&#x27;
+    // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [&#x27;progress&#x27;],
+    reporters: ['progress'],
 
 
     // web server port
@@ -941,7 +934,7 @@
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [&#x27;PhantomJS&#x27;],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -971,8 +964,8 @@
     r = exports.storage.debug;
   } catch(e) {}
 
-  // If debug isn&#x27;t set in LS, and we&#x27;re in Electron, try to load $DEBUG
-  if (!r &#x26;&#x26; typeof process !== &#x27;undefined&#x27; &#x26;&#x26; &#x27;env&#x27; in process) {
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r &amp;&amp; typeof process !== 'undefined' &amp;&amp; 'env' in process) {
     r = process.env.DEBUG;
   }
 
@@ -992,10 +985,10 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function log() {
   // this hackery is required for IE8/9, where
-  // the `console.log` function doesn&#x27;t have &#x27;apply&#x27;
-  return &#x27;object&#x27; === typeof console
-    &#x26;&#x26; console.log
-    &#x26;&#x26; Function.prototype.apply.call(console.log, console, arguments);
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    &amp;&amp; console.log
+    &amp;&amp; Function.prototype.apply.call(console.log, console, arguments);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1012,7 +1005,7 @@
     <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
   try {
     if (null == namespaces) {
-      exports.storage.removeItem(&#x27;debug&#x27;);
+      exports.storage.removeItem('debug');
     } else {
       exports.storage.debug = namespaces;
     }
@@ -1040,14 +1033,14 @@
  a Buffer as hex with `%h`, you could do something like:
 
 ```js
-const createDebug = require(&#x27;debug&#x27;)
-createDebug.formatters.h = (v) =&#x3e; {
-  return v.<span class="apidocCodeKeywordSpan">toString</span>(&#x27;hex&#x27;)
+const createDebug = require('debug')
+createDebug.formatters.h = (v) =&gt; {
+  return v.<span class="apidocCodeKeywordSpan">toString</span>('hex')
 }
 
-// …elsewhere
-const debug = createDebug(&#x27;foo&#x27;)
-debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
+// â€¦elsewhere
+const debug = createDebug('foo')
+debug('this is hex: %h', new Buffer('hello world'))
 //   foo this is hex: 68656c6c6f20776f726c6421 +0ms
 ```
 ...</pre></li>
@@ -1064,22 +1057,22 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function useColors() {
   // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we&#x27;re in Chrome, we&#x27;ll just detect this case
+  // initialized. Since we know we're in Chrome, we'll just detect this case
   // explicitly
-  if (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; window &#x26;&#x26; typeof window.process !== &#x27;undefined&#x27; &#x26;&#x26; window.process.type === &#x27;renderer&#x27;) {
+  if (typeof window !== 'undefined' &amp;&amp; window &amp;&amp; typeof window.process !== 'undefined' &amp;&amp; window.process.type === 'renderer') {
     return true;
   }
 
   // is webkit? http://stackoverflow.com/a/16459606/376773
   // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== &#x27;undefined&#x27; &#x26;&#x26; document &#x26;&#x26; &#x27;WebkitAppearance&#x27; in document.documentElement.style) ||
+  return (typeof document !== 'undefined' &amp;&amp; document &amp;&amp; 'WebkitAppearance' in document.documentElement.style) ||
     // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; window &#x26;&#x26; window.console &#x26;&#x26; (console.firebug || (console.exception &#x26;&#x26; console.table))) ||
-    // is firefox &#x3e;= v31?
+    (typeof window !== 'undefined' &amp;&amp; window &amp;&amp; window.console &amp;&amp; (console.firebug || (console.exception &amp;&amp; console.table))) ||
+    // is firefox &gt;= v31?
     // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== &#x27;undefined&#x27; &#x26;&#x26; navigator &#x26;&#x26; navigator.userAgent &#x26;&#x26; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &#x26;&#x26; parseInt(RegExp.$1, 10) &#x3e;= 31) ||
+    (typeof navigator !== 'undefined' &amp;&amp; navigator &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &amp;&amp; parseInt(RegExp.$1, 10) &gt;= 31) ||
     // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== &#x27;undefined&#x27; &#x26;&#x26; navigator &#x26;&#x26; navigator.userAgent &#x26;&#x26; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+    (typeof navigator !== 'undefined' &amp;&amp; navigator &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1130,7 +1123,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function disable() {
-  exports.enable(&#x27;&#x27;);
+  exports.enable('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1155,16 +1148,16 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
   exports.names = [];
   exports.skips = [];
 
-  var split = (namespaces || &#x27;&#x27;).split(/[\s,]+/);
+  var split = (namespaces || '').split(/[\s,]+/);
   var len = split.length;
 
-  for (var i = 0; i &#x3c; len; i++) {
+  for (var i = 0; i &lt; len; i++) {
     if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, &#x27;.*?&#x27;);
-    if (namespaces[0] === &#x27;-&#x27;) {
-      exports.skips.push(new RegExp(&#x27;^&#x27; + namespaces.substr(1) + &#x27;$&#x27;));
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
     } else {
-      exports.names.push(new RegExp(&#x27;^&#x27; + namespaces + &#x27;$&#x27;));
+      exports.names.push(new RegExp('^' + namespaces + '$'));
     }
   }
 }</pre></li>
@@ -1187,12 +1180,12 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function enabled(name) {
   var i, len;
-  for (i = 0, len = exports.skips.length; i &#x3c; len; i++) {
+  for (i = 0, len = exports.skips.length; i &lt; len; i++) {
     if (exports.skips[i].test(name)) {
       return false;
     }
   }
-  for (i = 0, len = exports.names.length; i &#x3c; len; i++) {
+  for (i = 0, len = exports.names.length; i &lt; len; i++) {
     if (exports.names[i].test(name)) {
       return true;
     }
@@ -1219,27 +1212,27 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <li>description and source-code<pre class="apidocCodePre">function formatArgs(args) {
   var useColors = this.useColors;
 
-  args[0] = (useColors ? &#x27;%c&#x27; : &#x27;&#x27;)
+  args[0] = (useColors ? '%c' : '')
     + this.namespace
-    + (useColors ? &#x27; %c&#x27; : &#x27; &#x27;)
+    + (useColors ? ' %c' : ' ')
     + args[0]
-    + (useColors ? &#x27;%c &#x27; : &#x27; &#x27;)
-    + &#x27;+&#x27; + exports.humanize(this.diff);
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
 
   if (!useColors) return;
 
-  var c = &#x27;color: &#x27; + this.color;
-  args.splice(1, 0, c, &#x27;color: inherit&#x27;)
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit')
 
-  // the final &#x22;%c&#x22; is somewhat tricky, because there could be other
+  // the final "%c" is somewhat tricky, because there could be other
   // arguments passed either before or after the %c, so we need to
   // figure out the correct index to insert the CSS into
   var index = 0;
   var lastC = 0;
   args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if (&#x27;%%&#x27; === match) return;
+    if ('%%' === match) return;
     index++;
-    if (&#x27;%c&#x27; === match) {
+    if ('%c' === match) {
       // we only are interested in the *last* %c
       // (the user may have provided their own)
       lastC = index;
@@ -1285,7 +1278,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
   try {
     return JSON.stringify(v);
   } catch (err) {
-    return &#x27;[UnexpectedJSONParseError]: &#x27; + err.message;
+    return '[UnexpectedJSONParseError]: ' + err.message;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1303,7 +1296,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <li>description and source-code<pre class="apidocCodePre">o = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts)
-    .replace(/\s*\n\s*/g, &#x27; &#x27;);
+    .replace(/\s*\n\s*/g, ' ');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1347,7 +1340,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
   try {
     return JSON.stringify(v);
   } catch (err) {
-    return &#x27;[UnexpectedJSONParseError]: &#x27; + err.message;
+    return '[UnexpectedJSONParseError]: ' + err.message;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1370,7 +1363,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <li>description and source-code<pre class="apidocCodePre">o = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts)
-    .replace(/\s*\n\s*/g, &#x27; &#x27;);
+    .replace(/\s*\n\s*/g, ' ');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1392,14 +1385,14 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <li>description and source-code<pre class="apidocCodePre">humanize = function (val, options) {
   options = options || {}
   var type = typeof val
-  if (type === &#x27;string&#x27; &#x26;&#x26; val.length &#x3e; 0) {
+  if (type === 'string' &amp;&amp; val.length &gt; 0) {
     return parse(val)
-  } else if (type === &#x27;number&#x27; &#x26;&#x26; isNaN(val) === false) {
+  } else if (type === 'number' &amp;&amp; isNaN(val) === false) {
     return options.long ?
 			fmtLong(val) :
 			fmtShort(val)
   }
-  throw new Error(&#x27;val is not a non-empty string or a valid number. val=&#x27; + JSON.stringify(val))
+  throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(val))
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1442,24 +1435,24 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: &#x27;&#x27;,
+    basePath: '',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [&#x27;mocha&#x27;, &#x27;chai&#x27;, &#x27;sinon&#x27;],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      &#x27;dist/debug.js&#x27;,
-      &#x27;test/*spec.js&#x27;
+      'dist/debug.js',
+      'test/*spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      &#x27;src/node.js&#x27;
+      'src/node.js'
     ],
 
 
@@ -1469,9 +1462,9 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     },
 
     // test results reporter to use
-    // possible values: &#x27;dots&#x27;, &#x27;progress&#x27;
+    // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [&#x27;progress&#x27;],
+    reporters: ['progress'],
 
 
     // web server port
@@ -1493,7 +1486,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [&#x27;PhantomJS&#x27;],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -1528,8 +1521,8 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     r = exports.storage.debug;
   } catch(e) {}
 
-  // If debug isn&#x27;t set in LS, and we&#x27;re in Electron, try to load $DEBUG
-  if (!r &#x26;&#x26; typeof process !== &#x27;undefined&#x27; &#x26;&#x26; &#x27;env&#x27; in process) {
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r &amp;&amp; typeof process !== 'undefined' &amp;&amp; 'env' in process) {
     r = process.env.DEBUG;
   }
 
@@ -1554,10 +1547,10 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function log() {
   // this hackery is required for IE8/9, where
-  // the `console.log` function doesn&#x27;t have &#x27;apply&#x27;
-  return &#x27;object&#x27; === typeof console
-    &#x26;&#x26; console.log
-    &#x26;&#x26; Function.prototype.apply.call(console.log, console, arguments);
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    &amp;&amp; console.log
+    &amp;&amp; Function.prototype.apply.call(console.log, console, arguments);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1579,7 +1572,7 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
   try {
     if (null == namespaces) {
-      exports.storage.removeItem(&#x27;debug&#x27;);
+      exports.storage.removeItem('debug');
     } else {
       exports.storage.debug = namespaces;
     }
@@ -1610,14 +1603,14 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
  a Buffer as hex with `%h`, you could do something like:
 
 ```js
-const createDebug = require(&#x27;debug&#x27;)
-createDebug.formatters.h = (v) =&#x3e; {
-  return v.<span class="apidocCodeKeywordSpan">toString</span>(&#x27;hex&#x27;)
+const createDebug = require('debug')
+createDebug.formatters.h = (v) =&gt; {
+  return v.<span class="apidocCodeKeywordSpan">toString</span>('hex')
 }
 
-// …elsewhere
-const debug = createDebug(&#x27;foo&#x27;)
-debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
+// â€¦elsewhere
+const debug = createDebug('foo')
+debug('this is hex: %h', new Buffer('hello world'))
 //   foo this is hex: 68656c6c6f20776f726c6421 +0ms
 ```
 ...</pre></li>
@@ -1639,22 +1632,22 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function useColors() {
   // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we&#x27;re in Chrome, we&#x27;ll just detect this case
+  // initialized. Since we know we're in Chrome, we'll just detect this case
   // explicitly
-  if (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; window &#x26;&#x26; typeof window.process !== &#x27;undefined&#x27; &#x26;&#x26; window.process.type === &#x27;renderer&#x27;) {
+  if (typeof window !== 'undefined' &amp;&amp; window &amp;&amp; typeof window.process !== 'undefined' &amp;&amp; window.process.type === 'renderer') {
     return true;
   }
 
   // is webkit? http://stackoverflow.com/a/16459606/376773
   // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== &#x27;undefined&#x27; &#x26;&#x26; document &#x26;&#x26; &#x27;WebkitAppearance&#x27; in document.documentElement.style) ||
+  return (typeof document !== 'undefined' &amp;&amp; document &amp;&amp; 'WebkitAppearance' in document.documentElement.style) ||
     // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; window &#x26;&#x26; window.console &#x26;&#x26; (console.firebug || (console.exception &#x26;&#x26; console.table))) ||
-    // is firefox &#x3e;= v31?
+    (typeof window !== 'undefined' &amp;&amp; window &amp;&amp; window.console &amp;&amp; (console.firebug || (console.exception &amp;&amp; console.table))) ||
+    // is firefox &gt;= v31?
     // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== &#x27;undefined&#x27; &#x26;&#x26; navigator &#x26;&#x26; navigator.userAgent &#x26;&#x26; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &#x26;&#x26; parseInt(RegExp.$1, 10) &#x3e;= 31) ||
+    (typeof navigator !== 'undefined' &amp;&amp; navigator &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &amp;&amp; parseInt(RegExp.$1, 10) &gt;= 31) ||
     // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== &#x27;undefined&#x27; &#x26;&#x26; navigator &#x26;&#x26; navigator.userAgent &#x26;&#x26; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+    (typeof navigator !== 'undefined' &amp;&amp; navigator &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1668,3 +1661,4 @@ debug(&#x27;this is hex: %h&#x27;, new Buffer(&#x27;hello world&#x27;))
     ]
 </div>
 </div>
+</body></html>
