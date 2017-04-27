@@ -1,6 +1,6 @@
 # npmdoc-debug
 
-#### api documentation for  [debug (v2.6.3)](https://github.com/visionmedia/debug#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-debug.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-debug) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-debug.svg)](https://travis-ci.org/npmdoc/node-npmdoc-debug)
+#### basic api documentation for  [debug (v2.6.5)](https://github.com/visionmedia/debug#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-debug.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-debug) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-debug.svg)](https://travis-ci.org/npmdoc/node-npmdoc-debug)
 
 #### small debugging utility
 
@@ -44,7 +44,7 @@
         }
     ],
     "dependencies": {
-        "ms": "0.7.2"
+        "ms": "0.7.3"
     },
     "description": "small debugging utility",
     "devDependencies": {
@@ -67,10 +67,10 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "0f7eb8c30965ec08c72accfa0130c8b79984141d",
-        "tarball": "https://registry.npmjs.org/debug/-/debug-2.6.3.tgz"
+        "shasum": "7a76247781acd4ef2a85f0fb8abf763cd1af249e",
+        "tarball": "https://registry.npmjs.org/debug/-/debug-2.6.5.tgz"
     },
-    "gitHead": "9dc30f8378cc12192635cc6a31f0d96bb39be8bb",
+    "gitHead": "14df14c3585bbeb10262f96f5ce61549669709d8",
     "homepage": "https://github.com/visionmedia/debug#readme",
     "keywords": [
         "debug",
@@ -91,7 +91,8 @@
         "url": "git://github.com/visionmedia/debug.git"
     },
     "scripts": {},
-    "version": "2.6.3"
+    "version": "2.6.5",
+    "bin": {}
 }
 ```
 
