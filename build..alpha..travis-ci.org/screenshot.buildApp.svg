@@ -1,0 +1,210 @@
+<svg height="1982" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1982" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26"></tspan>
+
+<tspan x="10" y="42">[MODE_BUILD=buildApp] - 2018-06-10T18:36:23.667Z - npm-testing /home/travis/build/npmdoc/node-np\</tspan>
+<tspan x="10" y="58">mdoc-debug</tspan>
+
+<tspan x="10" y="74"></tspan>
+
+<tspan x="10" y="90"></tspan>
+
+<tspan x="10" y="106">buildApp - merged test-report from file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build/te\</tspan>
+<tspan x="10" y="122">st-report.json</tspan>
+
+<tspan x="10" y="138">&gt; server listening on http-port 54829</tspan>
+
+<tspan x="10" y="154">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/packag\</tspan>
+<tspan x="10" y="170">e.json</tspan>
+
+<tspan x="10" y="186">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/CHANGE\</tspan>
+<tspan x="10" y="202">LOG.md</tspan>
+
+<tspan x="10" y="218">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.cover\</tspan>
+<tspan x="10" y="234">alls.yml</tspan>
+
+<tspan x="10" y="250">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.eslin\</tspan>
+<tspan x="10" y="266">trc</tspan>
+
+<tspan x="10" y="282">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.gitig\</tspan>
+<tspan x="10" y="298">nore</tspan>
+
+<tspan x="10" y="314">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/karma.\</tspan>
+<tspan x="10" y="330">conf.js</tspan>
+
+<tspan x="10" y="346">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/LICENS\</tspan>
+<tspan x="10" y="362">E</tspan>
+
+<tspan x="10" y="378">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/Makefi\</tspan>
+<tspan x="10" y="394">le</tspan>
+
+<tspan x="10" y="410">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/node.j\</tspan>
+<tspan x="10" y="426">s</tspan>
+
+<tspan x="10" y="442">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.npmig\</tspan>
+<tspan x="10" y="458">nore</tspan>
+
+<tspan x="10" y="474">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/packag\</tspan>
+<tspan x="10" y="490">e.json</tspan>
+
+<tspan x="10" y="506">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/README\</tspan>
+<tspan x="10" y="522">.md</tspan>
+
+<tspan x="10" y="538">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.travi\</tspan>
+<tspan x="10" y="554">s.yml</tspan>
+
+<tspan x="10" y="570">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/br\</tspan>
+<tspan x="10" y="586">owser.js</tspan>
+
+<tspan x="10" y="602">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/de\</tspan>
+<tspan x="10" y="618">bug.js</tspan>
+
+<tspan x="10" y="634">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/in\</tspan>
+<tspan x="10" y="650">dex.js</tspan>
+
+<tspan x="10" y="666">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/no\</tspan>
+<tspan x="10" y="682">de.js</tspan>
+
+<tspan x="10" y="698">apidocCreate - requiring /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug ...</tspan>
+
+<tspan x="10" y="714">apidocCreate - ... required /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug</tspan>
+
+<tspan x="10" y="730">apidocCreate - libFile karma.conf.js</tspan>
+
+<tspan x="10" y="746">apidocCreate - libFile node.js</tspan>
+
+<tspan x="10" y="762">apidocCreate - libFile src/browser.js</tspan>
+
+<tspan x="10" y="778">apidocCreate - libFile src/debug.js</tspan>
+
+<tspan x="10" y="794">apidocCreate - libFile src/node.js</tspan>
+
+<tspan x="10" y="810">created apidoc file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build/apidoc.html</tspan>
+
+<tspan x="10" y="826"></tspan>
+
+<tspan x="10" y="842">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/packag\</tspan>
+<tspan x="10" y="858">e.json</tspan>
+
+<tspan x="10" y="874">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/CHANGE\</tspan>
+<tspan x="10" y="890">LOG.md</tspan>
+
+<tspan x="10" y="906">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.cover\</tspan>
+<tspan x="10" y="922">alls.yml</tspan>
+
+<tspan x="10" y="938">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.eslin\</tspan>
+<tspan x="10" y="954">trc</tspan>
+
+<tspan x="10" y="970">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.gitig\</tspan>
+<tspan x="10" y="986">nore</tspan>
+
+<tspan x="10" y="1002">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/karma.\</tspan>
+<tspan x="10" y="1018">conf.js</tspan>
+
+<tspan x="10" y="1034">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/LICENS\</tspan>
+<tspan x="10" y="1050">E</tspan>
+
+<tspan x="10" y="1066">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/Makefi\</tspan>
+<tspan x="10" y="1082">le</tspan>
+
+<tspan x="10" y="1098">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/node.j\</tspan>
+<tspan x="10" y="1114">s</tspan>
+
+<tspan x="10" y="1130">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.npmig\</tspan>
+<tspan x="10" y="1146">nore</tspan>
+
+<tspan x="10" y="1162">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/packag\</tspan>
+<tspan x="10" y="1178">e.json</tspan>
+
+<tspan x="10" y="1194">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/README\</tspan>
+<tspan x="10" y="1210">.md</tspan>
+
+<tspan x="10" y="1226">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/.travi\</tspan>
+<tspan x="10" y="1242">s.yml</tspan>
+
+<tspan x="10" y="1258">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/br\</tspan>
+<tspan x="10" y="1274">owser.js</tspan>
+
+<tspan x="10" y="1290">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/de\</tspan>
+<tspan x="10" y="1306">bug.js</tspan>
+
+<tspan x="10" y="1322">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/in\</tspan>
+<tspan x="10" y="1338">dex.js</tspan>
+
+<tspan x="10" y="1354">apidocCreate - readExample /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug/src/no\</tspan>
+<tspan x="10" y="1370">de.js</tspan>
+
+<tspan x="10" y="1386">apidocCreate - requiring /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug ...</tspan>
+
+<tspan x="10" y="1402">apidocCreate - ... required /home/travis/build/npmdoc/node-npmdoc-debug/node_modules/debug</tspan>
+
+<tspan x="10" y="1418">apidocCreate - libFile karma.conf.js</tspan>
+
+<tspan x="10" y="1434">apidocCreate - libFile node.js</tspan>
+
+<tspan x="10" y="1450">apidocCreate - libFile src/browser.js</tspan>
+
+<tspan x="10" y="1466">apidocCreate - libFile src/debug.js</tspan>
+
+<tspan x="10" y="1482">apidocCreate - libFile src/node.js</tspan>
+
+<tspan x="10" y="1498">created customOrg file /home/travis/build/npmdoc/node-npmdoc-debug/README.md</tspan>
+
+<tspan x="10" y="1514"></tspan>
+
+<tspan x="10" y="1530">(node:5753) DeprecationWarning: _linklist module is deprecated. Please use a userland alternativ\</tspan>
+<tspan x="10" y="1546">e.</tspan>
+
+<tspan x="10" y="1562">(node:5753) DeprecationWarning: sys is deprecated. Use util instead.</tspan>
+
+<tspan x="10" y="1578">&gt; server listening on http-port 62107</tspan>
+
+<tspan x="10" y="1594">[node test-case 1 of 1 passed] - testCase_buildApp_default</tspan>
+
+<tspan x="10" y="1610"></tspan>
+
+<tspan x="10" y="1626">buildApp - merged test-report from file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build/te\</tspan>
+<tspan x="10" y="1642">st-report.json</tspan>
+
+<tspan x="10" y="1658"></tspan>
+
+<tspan x="10" y="1674">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1690">| test-report - buildApidoc - node - linux v6.14.2 - 2018-06-10T18:36:00.727Z</tspan>
+
+<tspan x="10" y="1706">|   29053 ms            0 failed        1 passed      |</tspan>
+
+<tspan x="10" y="1722">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1738">| test-report - buildApp - node - linux v6.14.2 - 2018-06-10T18:35:31.920Z</tspan>
+
+<tspan x="10" y="1754">|   25822 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="1770">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1786">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="1802">L, like Gecko) Chrome/58.0.3029.110 Electron/1.7.15 Safari/537.36 - 2018-06-10T18:35:43.091Z</tspan>
+
+<tspan x="10" y="1818">|      47 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="1834">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="1850"></tspan>
+
+<tspan x="10" y="1866">created test-report file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build/test-report.html</tspan>
+
+<tspan x="10" y="1882"></tspan>
+
+<tspan x="10" y="1898"></tspan>
+
+<tspan x="10" y="1914">buildApp - 0 failed tests</tspan>
+
+<tspan x="10" y="1930"></tspan>
+
+<tspan x="10" y="1946"></tspan>
+
+<tspan x="10" y="1962">[MODE_BUILD=buildApp] - 2018-06-10T18:36:31.333Z - EXIT_CODE - 0</tspan>
+
+</text>
+</svg>

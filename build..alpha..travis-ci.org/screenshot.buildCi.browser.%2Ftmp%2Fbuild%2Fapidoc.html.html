@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -48,17 +48,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/visionmedia/debug#readme"
-
-    >debug (3.1.0)</a>
+    <a href="https://github.com/visionmedia/debug#readme">debug (3.1.0)</a>
 </h1>
 <h4>small debugging utility</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.debug">module debug</a><ol>
 
@@ -287,23 +280,23 @@
 
     args[0] = exports.coerce(args[0]);
 
-    if (&apos;string&apos; !== typeof args[0]) {
-      // anything else let&apos;s inspect with %O
-      args.unshift(&apos;%O&apos;);
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
     }
 
     // apply any `formatters` transformations
     var index = 0;
     args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don&apos;t increase the array index
-      if (match === &apos;%%&apos;) return match;
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
       index++;
       var formatter = exports.formatters[format];
-      if (&apos;function&apos; === typeof formatter) {
+      if ('function' === typeof formatter) {
         var val = args[index];
         match = formatter.call(self, val);
 
-        // now we need to remove `args[index]` since it&apos;s inlined in the `format`
+        // now we need to remove `args[index]` since it's inlined in the `format`
         args.splice(index, 1);
         index--;
       }
@@ -324,7 +317,7 @@
   debug.destroy = destroy;
 
   // env-specific initialization logic for debug instances
-  if (&apos;function&apos; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.init(debug);
   }
 
@@ -358,9 +351,9 @@ for (var i = 0; i &lt; args.length; i++) {
 
 args[0] = exports.<span class="apidocCodeKeywordSpan">coerce</span>(args[0]);
 
-if (&apos;string&apos; !== typeof args[0]) {
-  // anything else let&apos;s inspect with %O
-  args.unshift(&apos;%O&apos;);
+if ('string' !== typeof args[0]) {
+  // anything else let's inspect with %O
+  args.unshift('%O');
 }
 
 // apply any `formatters` transformations
@@ -402,23 +395,23 @@ if (&apos;string&apos; !== typeof args[0]) {
 
     args[0] = exports.coerce(args[0]);
 
-    if (&apos;string&apos; !== typeof args[0]) {
-      // anything else let&apos;s inspect with %O
-      args.unshift(&apos;%O&apos;);
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
     }
 
     // apply any `formatters` transformations
     var index = 0;
     args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don&apos;t increase the array index
-      if (match === &apos;%%&apos;) return match;
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
       index++;
       var formatter = exports.formatters[format];
-      if (&apos;function&apos; === typeof formatter) {
+      if ('function' === typeof formatter) {
         var val = args[index];
         match = formatter.call(self, val);
 
-        // now we need to remove `args[index]` since it&apos;s inlined in the `format`
+        // now we need to remove `args[index]` since it's inlined in the `format`
         args.splice(index, 1);
         index--;
       }
@@ -439,7 +432,7 @@ if (&apos;string&apos; !== typeof args[0]) {
   debug.destroy = destroy;
 
   // env-specific initialization logic for debug instances
-  if (&apos;function&apos; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.init(debug);
   }
 
@@ -460,10 +453,10 @@ if (&apos;string&apos; !== typeof args[0]) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function disable() {
-  exports.enable(&apos;&apos;);
+  exports.enable('');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-* Added support for &quot;-&quot; prefix in DEBUG [Vinay Pulim]
+* Added support for "-" prefix in DEBUG [Vinay Pulim]
 * Added `.enabled` flag to the node version [TooTallNate]
 
 0.5.0 / 2012-02-02
@@ -497,16 +490,16 @@ if (&apos;string&apos; !== typeof args[0]) {
   exports.skips = [];
 
   var i;
-  var split = (typeof namespaces === &apos;string&apos; ? namespaces : &apos;&apos;).split(/[\s,]+/);
+  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
   var len = split.length;
 
   for (i = 0; i &lt; len; i++) {
     if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, &apos;.*?&apos;);
-    if (namespaces[0] === &apos;-&apos;) {
-      exports.skips.push(new RegExp(&apos;^&apos; + namespaces.substr(1) + &apos;$&apos;));
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
     } else {
-      exports.names.push(new RegExp(&apos;^&apos; + namespaces + &apos;$&apos;));
+      exports.names.push(new RegExp('^' + namespaces + '$'));
     }
   }
 
@@ -523,7 +516,7 @@ if (&apos;string&apos; !== typeof args[0]) {
 ==================
 
 * Added browser variant support for older browsers [TooTallNate]
-* Added `debug.<span class="apidocCodeKeywordSpan">enable</span>(&apos;project:*&apos;)` to browser variant [TooTallNate]
+* Added `debug.<span class="apidocCodeKeywordSpan">enable</span>('project:*')` to browser variant [TooTallNate]
 * Added padding to diff (moved it to the right)
 
 0.3.0 / 2012-01-26
@@ -543,7 +536,7 @@ if (&apos;string&apos; !== typeof args[0]) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function enabled(name) {
-  if (name[name.length - 1] === &apos;*&apos;) {
+  if (name[name.length - 1] === '*') {
     return true;
   }
   var i, len;
@@ -573,7 +566,7 @@ debug.color = selectColor(namespace);
 debug.destroy = destroy;
 
 // env-specific initialization logic for debug instances
-if (&apos;function&apos; === typeof exports.init) {
+if ('function' === typeof exports.init) {
   exports.init(debug);
 ...</pre></li>
     </ul>
@@ -588,19 +581,36 @@ if (&apos;function&apos; === typeof exports.init) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function formatArgs(args) {
-  var name = this.namespace;
   var useColors = this.useColors;
 
-  if (useColors) {
-    var c = this.color;
-    var colorCode = &apos;\u001b[3&apos; + (c &lt; 8 ? c : &apos;8;5;&apos; + c);
-    var prefix = &apos;  &apos; + colorCode + &apos;;1m&apos; + name + &apos; &apos; + &apos;\u001b[0m&apos;;
+  args[0] = (useColors ? '%c' : '')
+    + this.namespace
+    + (useColors ? ' %c' : ' ')
+    + args[0]
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
 
-    args[0] = prefix + args[0].split(&apos;\n&apos;).join(&apos;\n&apos; + prefix);
-    args.push(colorCode + &apos;m+&apos; + exports.humanize(this.diff) + &apos;\u001b[0m&apos;);
-  } else {
-    args[0] = getDate() + name + &apos; &apos; + args[0];
-  }
+  if (!useColors) return;
+
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit')
+
+  // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-zA-Z%]/g, function(match) {
+    if ('%%' === match) return;
+    index++;
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+
+  args.splice(lastC, 0, c);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -617,32 +627,32 @@ if (&apos;function&apos; === typeof exports.init) {
     <li>description and source-code<pre class="apidocCodePre">humanize = function (val, options) {
   options = options || {};
   var type = typeof val;
-  if (type === &apos;string&apos; &amp;&amp; val.length &gt; 0) {
+  if (type === 'string' &amp;&amp; val.length &gt; 0) {
     return parse(val);
-  } else if (type === &apos;number&apos; &amp;&amp; isNaN(val) === false) {
+  } else if (type === 'number' &amp;&amp; isNaN(val) === false) {
     return options.long ? fmtLong(val) : fmtShort(val);
   }
   throw new Error(
-    &apos;val is not a non-empty string or a valid number. val=&apos; +
+    'val is not a non-empty string or a valid number. val=' +
       JSON.stringify(val)
   );
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 var useColors = this.useColors;
 
-args[0] = (useColors ? &apos;%c&apos; : &apos;&apos;)
+args[0] = (useColors ? '%c' : '')
   + this.namespace
-  + (useColors ? &apos; %c&apos; : &apos; &apos;)
+  + (useColors ? ' %c' : ' ')
   + args[0]
-  + (useColors ? &apos;%c &apos; : &apos; &apos;)
-  + &apos;+&apos; + exports.<span class="apidocCodeKeywordSpan">humanize</span>(this.diff);
+  + (useColors ? '%c ' : ' ')
+  + '+' + exports.<span class="apidocCodeKeywordSpan">humanize</span>(this.diff);
 
 if (!useColors) return;
 
-var c = &apos;color: &apos; + this.color;
-args.splice(1, 0, c, &apos;color: inherit&apos;)
+var c = 'color: ' + this.color;
+args.splice(1, 0, c, 'color: inherit')
 
-// the final &quot;%c&quot; is somewhat tricky, because there could be other
+// the final "%c" is somewhat tricky, because there could be other
 ...</pre></li>
     </ul>
 
@@ -670,7 +680,7 @@ args.splice(1, 0, c, &apos;color: inherit&apos;)
   debug.destroy = destroy;
 
   // env-specific initialization logic for debug instances
-  if (&apos;function&apos; === typeof exports.init) {
+  if ('function' === typeof exports.init) {
     exports.<span class="apidocCodeKeywordSpan">init</span>(debug);
   }
 
@@ -691,7 +701,17 @@ args.splice(1, 0, c, &apos;color: inherit&apos;)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function load() {
-  return process.env.DEBUG;
+  var r;
+  try {
+    r = exports.storage.debug;
+  } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r &amp;&amp; typeof process !== 'undefined' &amp;&amp; 'env' in process) {
+    r = process.env.DEBUG;
+  }
+
+  return r;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -706,7 +726,11 @@ args.splice(1, 0, c, &apos;color: inherit&apos;)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function log() {
-  return process.stderr.write(util.format.apply(util, arguments) + &apos;\n&apos;);
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    &amp;&amp; console.log
+    &amp;&amp; Function.prototype.apply.call(console.log, console, arguments);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   }
@@ -717,7 +741,7 @@ args.splice(lastC, 0, c);
 
 /**
  * Invokes `console.<span class="apidocCodeKeywordSpan">log</span>()` when available.
- * No-op when `console.log` is not a &quot;function&quot;.
+ * No-op when `console.log` is not a "function".
  *
  * @api public
  */
@@ -737,13 +761,13 @@ function log() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
-  if (null == namespaces) {
-    // If you set a process.env field to null or undefined, it gets cast to the
-    // string &apos;null&apos; or &apos;undefined&apos;. Just delete instead.
-    delete process.env.DEBUG;
-  } else {
-    process.env.DEBUG = namespaces;
-  }
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch(e) {}
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  * separated by a colon and wildcards.
@@ -759,7 +783,7 @@ exports.names = [];
 exports.skips = [];
 
 var i;
-var split = (typeof namespaces === &apos;string&apos; ? namespaces : &apos;&apos;).split(/[\s,]+/);
+var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
 var len = split.length;
 ...</pre></li>
     </ul>
@@ -774,9 +798,31 @@ var len = split.length;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function useColors() {
-  return &apos;colors&apos; in exports.inspectOpts
-    ? Boolean(exports.inspectOpts.colors)
-    : tty.isatty(process.stderr.fd);
+  // NB: In an Electron preload script, document will be defined but not fully
+  // initialized. Since we know we're in Chrome, we'll just detect this case
+  // explicitly
+  if (typeof window !== 'undefined' &amp;&amp; window.process &amp;&amp; window.process.type === 'renderer') {
+    return true;
+  }
+
+  // Internet Explorer and Edge do not support colors.
+  if (typeof navigator !== 'undefined' &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+    return false;
+  }
+
+  // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' &amp;&amp; document.documentElement &amp;&amp; document.documentElement.style &amp;&amp; document.documentElement
+.style.WebkitAppearance) ||
+    // is firebug? http://stackoverflow.com/a/398120/376773
+    (typeof window !== 'undefined' &amp;&amp; window.console &amp;&amp; (window.console.firebug || (window.console.exception &amp;&amp; window.console.table
+))) ||
+    // is firefox &gt;= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    (typeof navigator !== 'undefined' &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &amp;&amp; parseInt
+(RegExp.$1, 10) &gt;= 31) ||
+    // double check webkit in userAgent just in case we are in a worker
+    (typeof navigator !== 'undefined' &amp;&amp; navigator.userAgent &amp;&amp; navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -791,7 +837,7 @@ debug.color = selectColor(namespace);
 debug.destroy = destroy;
 
 // env-specific initialization logic for debug instances
-if (&apos;function&apos; === typeof exports.init) {
+if ('function' === typeof exports.init) {
   exports.init(debug);
 }
 ...</pre></li>
@@ -843,7 +889,7 @@ if (&apos;function&apos; === typeof exports.init) {
   try {
     return JSON.stringify(v);
   } catch (err) {
-    return &apos;[UnexpectedJSONParseError]: &apos; + err.message;
+    return '[UnexpectedJSONParseError]: ' + err.message;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -861,9 +907,9 @@ if (&apos;function&apos; === typeof exports.init) {
     <li>description and source-code<pre class="apidocCodePre">o = function (v) {
   this.inspectOpts.colors = this.useColors;
   return util.inspect(v, this.inspectOpts)
-    .split(&apos;\n&apos;).map(function(str) {
+    .split('\n').map(function(str) {
       return str.trim()
-    }).join(&apos; &apos;);
+    }).join(' ');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -877,3 +923,4 @@ if (&apos;function&apos; === typeof exports.init) {
     ]
 </div>
 </div>
+</body></html>
