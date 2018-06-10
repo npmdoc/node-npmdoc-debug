@@ -1,6 +1,6 @@
 # npmdoc-debug
 
-#### basic api documentation for  [debug (v2.6.5)](https://github.com/visionmedia/debug#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-debug.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-debug) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-debug.svg)](https://travis-ci.org/npmdoc/node-npmdoc-debug)
+#### basic api documentation for  [debug (3.1.0)](https://github.com/visionmedia/debug#readme)  [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-debug.svg)](https://travis-ci.org/npmdoc/node-npmdoc-debug)
 
 #### small debugging utility
 
@@ -8,11 +8,11 @@
 
 - [https://npmdoc.github.io/node-npmdoc-debug/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-debug/build/apidoc.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-debug/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-debug/build/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-debug/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-debug/build/apidoc.html)
 
-![npmPackageListing](https://npmdoc.github.io/node-npmdoc-debug/build/screenCapture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-debug/build/screenshot.npmPackageListing.svg)
 
-![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-debug/build/screenCapture.npmPackageDependencyTree.svg)
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-debug/build/screenshot.npmPackageDependencyTree.svg)
 
 
 
@@ -28,12 +28,6 @@
     "bugs": {
         "url": "https://github.com/visionmedia/debug/issues"
     },
-    "component": {
-        "scripts": {
-            "debug/index.js": "browser.js",
-            "debug/debug.js": "debug.js"
-        }
-    },
     "contributors": [
         {
             "name": "Nathan Rajlich",
@@ -44,11 +38,11 @@
         }
     ],
     "dependencies": {
-        "ms": "0.7.3"
+        "ms": "2.0.0"
     },
     "description": "small debugging utility",
     "devDependencies": {
-        "browserify": "9.0.3",
+        "browserify": "14.4.0",
         "chai": "^3.5.0",
         "concurrently": "^3.1.0",
         "coveralls": "^2.11.15",
@@ -67,10 +61,11 @@
     },
     "directories": {},
     "dist": {
-        "shasum": "7a76247781acd4ef2a85f0fb8abf763cd1af249e",
-        "tarball": "https://registry.npmjs.org/debug/-/debug-2.6.5.tgz"
+        "integrity": "sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==",
+        "shasum": "5bb5a0672628b64149566ba16819e61518c67261",
+        "tarball": "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz"
     },
-    "gitHead": "14df14c3585bbeb10262f96f5ce61549669709d8",
+    "gitHead": "f073e056f33efdd5b311381eb6bca2bc850745bf",
     "homepage": "https://github.com/visionmedia/debug#readme",
     "keywords": [
         "debug",
@@ -82,6 +77,15 @@
     "maintainers": [
         {
             "name": "thebigredgeek"
+        },
+        {
+            "name": "kolban"
+        },
+        {
+            "name": "tootallnate"
+        },
+        {
+            "name": "tjholowaychuk"
         }
     ],
     "name": "debug",
@@ -90,8 +94,7 @@
         "type": "git",
         "url": "git://github.com/visionmedia/debug.git"
     },
-    "scripts": {},
-    "version": "2.6.5",
+    "version": "3.1.0",
     "bin": {}
 }
 ```
