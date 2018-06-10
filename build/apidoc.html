@@ -1,0 +1,673 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/visionmedia/debug#readme"
+
+    >debug (v2.6.3)</a>
+</h1>
+<h4>small debugging utility</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.debug">module debug</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.debug">
+            function <span class="apidocSignatureSpan"></span>debug
+            <span class="apidocSignatureSpan">(namespace)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.coerce">
+            function <span class="apidocSignatureSpan">debug.</span>coerce
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.default">
+            function <span class="apidocSignatureSpan">debug.</span>default
+            <span class="apidocSignatureSpan">(namespace)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.disable">
+            function <span class="apidocSignatureSpan">debug.</span>disable
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.enable">
+            function <span class="apidocSignatureSpan">debug.</span>enable
+            <span class="apidocSignatureSpan">(namespaces)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.enabled">
+            function <span class="apidocSignatureSpan">debug.</span>enabled
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.formatArgs">
+            function <span class="apidocSignatureSpan">debug.</span>formatArgs
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.humanize">
+            function <span class="apidocSignatureSpan">debug.</span>humanize
+            <span class="apidocSignatureSpan">(val, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.init">
+            function <span class="apidocSignatureSpan">debug.</span>init
+            <span class="apidocSignatureSpan">(debug)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.load">
+            function <span class="apidocSignatureSpan">debug.</span>load
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.log">
+            function <span class="apidocSignatureSpan">debug.</span>log
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.save">
+            function <span class="apidocSignatureSpan">debug.</span>save
+            <span class="apidocSignatureSpan">(namespaces)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.useColors">
+            function <span class="apidocSignatureSpan">debug.</span>useColors
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">debug.</span>colors</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">debug.</span>formatters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">debug.</span>inspectOpts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">debug.</span>names</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">debug.</span>skips</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.debug.formatters">module debug.formatters</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.formatters.O">
+            function <span class="apidocSignatureSpan">debug.formatters.</span>O
+            <span class="apidocSignatureSpan">(v)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.debug.formatters.o">
+            function <span class="apidocSignatureSpan">debug.formatters.</span>o
+            <span class="apidocSignatureSpan">(v)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.debug" id="apidoc.module.debug">module debug</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.debug.debug" id="apidoc.element.debug.debug">
+        function <span class="apidocSignatureSpan"></span>debug
+        <span class="apidocSignatureSpan">(namespace)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i &#x3c; args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if (&#x27;string&#x27; !== typeof args[0]) {
+      // anything else let&#x27;s inspect with %O
+      args.unshift(&#x27;%O&#x27;);
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don&#x27;t increase the array index
+      if (match === &#x27;%%&#x27;) return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if (&#x27;function&#x27; === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if (&#x27;function&#x27; === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.coerce" id="apidoc.element.debug.coerce">
+        function <span class="apidocSignatureSpan">debug.</span>coerce
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function coerce(val) {
+  if (val instanceof Error) return val.stack || val.message;
+  return val;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.default" id="apidoc.element.debug.default">
+        function <span class="apidocSignatureSpan">debug.</span>default
+        <span class="apidocSignatureSpan">(namespace)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i &#x3c; args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if (&#x27;string&#x27; !== typeof args[0]) {
+      // anything else let&#x27;s inspect with %O
+      args.unshift(&#x27;%O&#x27;);
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don&#x27;t increase the array index
+      if (match === &#x27;%%&#x27;) return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if (&#x27;function&#x27; === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if (&#x27;function&#x27; === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.disable" id="apidoc.element.debug.disable">
+        function <span class="apidocSignatureSpan">debug.</span>disable
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disable() {
+  exports.enable(&#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.enable" id="apidoc.element.debug.enable">
+        function <span class="apidocSignatureSpan">debug.</span>enable
+        <span class="apidocSignatureSpan">(namespaces)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function enable(namespaces) {
+  exports.save(namespaces);
+
+  exports.names = [];
+  exports.skips = [];
+
+  var split = (namespaces || &#x27;&#x27;).split(/[\s,]+/);
+  var len = split.length;
+
+  for (var i = 0; i &#x3c; len; i++) {
+    if (!split[i]) continue; // ignore empty strings
+    namespaces = split[i].replace(/\*/g, &#x27;.*?&#x27;);
+    if (namespaces[0] === &#x27;-&#x27;) {
+      exports.skips.push(new RegExp(&#x27;^&#x27; + namespaces.substr(1) + &#x27;$&#x27;));
+    } else {
+      exports.names.push(new RegExp(&#x27;^&#x27; + namespaces + &#x27;$&#x27;));
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.enabled" id="apidoc.element.debug.enabled">
+        function <span class="apidocSignatureSpan">debug.</span>enabled
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function enabled(name) {
+  var i, len;
+  for (i = 0, len = exports.skips.length; i &#x3c; len; i++) {
+    if (exports.skips[i].test(name)) {
+      return false;
+    }
+  }
+  for (i = 0, len = exports.names.length; i &#x3c; len; i++) {
+    if (exports.names[i].test(name)) {
+      return true;
+    }
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.formatArgs" id="apidoc.element.debug.formatArgs">
+        function <span class="apidocSignatureSpan">debug.</span>formatArgs
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function formatArgs(args) {
+  var name = this.namespace;
+  var useColors = this.useColors;
+
+  if (useColors) {
+    var c = this.color;
+    var prefix = &#x27;  \u001b[3&#x27; + c + &#x27;;1m&#x27; + name + &#x27; &#x27; + &#x27;\u001b[0m&#x27;;
+
+    args[0] = prefix + args[0].split(&#x27;\n&#x27;).join(&#x27;\n&#x27; + prefix);
+    args.push(&#x27;\u001b[3&#x27; + c + &#x27;m+&#x27; + exports.humanize(this.diff) + &#x27;\u001b[0m&#x27;);
+  } else {
+    args[0] = new Date().toUTCString()
+      + &#x27; &#x27; + name + &#x27; &#x27; + args[0];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.humanize" id="apidoc.element.debug.humanize">
+        function <span class="apidocSignatureSpan">debug.</span>humanize
+        <span class="apidocSignatureSpan">(val, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">humanize = function (val, options) {
+  options = options || {}
+  var type = typeof val
+  if (type === &#x27;string&#x27; &#x26;&#x26; val.length &#x3e; 0) {
+    return parse(val)
+  } else if (type === &#x27;number&#x27; &#x26;&#x26; isNaN(val) === false) {
+    return options.long ?
+			fmtLong(val) :
+			fmtShort(val)
+  }
+  throw new Error(&#x27;val is not a non-empty string or a valid number. val=&#x27; + JSON.stringify(val))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.init" id="apidoc.element.debug.init">
+        function <span class="apidocSignatureSpan">debug.</span>init
+        <span class="apidocSignatureSpan">(debug)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init(debug) {
+  debug.inspectOpts = util._extend({}, exports.inspectOpts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.load" id="apidoc.element.debug.load">
+        function <span class="apidocSignatureSpan">debug.</span>load
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function load() {
+  return process.env.DEBUG;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.log" id="apidoc.element.debug.log">
+        function <span class="apidocSignatureSpan">debug.</span>log
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function log() {
+  return stream.write(util.format.apply(util, arguments) + &#x27;\n&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.save" id="apidoc.element.debug.save">
+        function <span class="apidocSignatureSpan">debug.</span>save
+        <span class="apidocSignatureSpan">(namespaces)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function save(namespaces) {
+  if (null == namespaces) {
+    // If you set a process.env field to null or undefined, it gets cast to the
+    // string &#x27;null&#x27; or &#x27;undefined&#x27;. Just delete instead.
+    delete process.env.DEBUG;
+  } else {
+    process.env.DEBUG = namespaces;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.useColors" id="apidoc.element.debug.useColors">
+        function <span class="apidocSignatureSpan">debug.</span>useColors
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function useColors() {
+  return &#x27;colors&#x27; in exports.inspectOpts
+    ? Boolean(exports.inspectOpts.colors)
+    : tty.isatty(fd);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.debug.formatters" id="apidoc.module.debug.formatters">module debug.formatters</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.debug.formatters.O" id="apidoc.element.debug.formatters.O">
+        function <span class="apidocSignatureSpan">debug.formatters.</span>O
+        <span class="apidocSignatureSpan">(v)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">O = function (v) {
+  this.inspectOpts.colors = this.useColors;
+  return util.inspect(v, this.inspectOpts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.debug.formatters.o" id="apidoc.element.debug.formatters.o">
+        function <span class="apidocSignatureSpan">debug.formatters.</span>o
+        <span class="apidocSignatureSpan">(v)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">o = function (v) {
+  this.inspectOpts.colors = this.useColors;
+  return util.inspect(v, this.inspectOpts)
+    .replace(/\s*\n\s*/g, &#x27; &#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

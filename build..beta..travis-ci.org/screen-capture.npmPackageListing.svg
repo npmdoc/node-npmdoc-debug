@@ -1,0 +1,19 @@
+<svg height="254" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="254" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  1.  2017-03-25 18:20:56 +0000    10742 byte  CHANGELOG.md</tspan>
+<tspan x="10" y="42">  2.  2017-03-25 18:20:56 +0000     1107 byte  LICENSE</tspan>
+<tspan x="10" y="58">  3.  2017-03-25 18:20:56 +0000     1059 byte  Makefile</tspan>
+<tspan x="10" y="74">  4.  2017-03-25 18:20:56 +0000    17918 byte  README.md</tspan>
+<tspan x="10" y="90">  5.  2017-03-25 18:20:56 +0000      567 byte  bower.json</tspan>
+<tspan x="10" y="106">  6.  2017-03-25 18:20:56 +0000      321 byte  component.json</tspan>
+<tspan x="10" y="122">  7.  2017-03-25 18:20:56 +0000     1736 byte  karma.conf.js</tspan>
+<tspan x="10" y="138">  8.  2017-03-25 18:20:56 +0000       40 byte  node.js</tspan>
+<tspan x="10" y="154">  9.  2017-03-25 18:20:56 +0000     2935 byte  package.json</tspan>
+<tspan x="10" y="170"> 10.  2017-03-25 18:20:56 +0000     4737 byte  src/browser.js</tspan>
+<tspan x="10" y="186"> 11.  2017-03-25 18:20:56 +0000     4362 byte  src/debug.js</tspan>
+<tspan x="10" y="202"> 12.  2017-03-25 18:20:56 +0000      263 byte  src/index.js</tspan>
+<tspan x="10" y="218"> 13.  2017-03-25 18:20:56 +0000     5846 byte  src/node.js</tspan>
+<tspan x="10" y="234"> 14.  2017-03-25 18:20:56 +0000    51633 byte  .</tspan>
+</text>
+</svg>
