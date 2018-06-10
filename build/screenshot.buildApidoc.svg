@@ -1,9 +1,9 @@
-<svg height="606" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="606" fill="#555" width="720"></rect>
+<svg height="670" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="670" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-06-10T18:38:13.530Z - npm-testing /home/travis/build/npmdoc/node\</tspan>
+<tspan x="10" y="42">[MODE_BUILD=buildApidoc] - 2018-06-10T18:41:15.561Z - npm-testing /home/travis/build/npmdoc/node\</tspan>
 <tspan x="10" y="58">-npmdoc-debug</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build\</tspan>
 <tspan x="10" y="122">/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; server listening on http-port 43443</tspan>
+<tspan x="10" y="138">&gt; server listening on http-port 40340</tspan>
 
 <tspan x="10" y="154">[node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
@@ -28,7 +28,7 @@
 
 <tspan x="10" y="250">| test-report - buildApidoc - node - linux v6.14.2 - 2018-06-10T18:36:00.727Z</tspan>
 
-<tspan x="10" y="266">|  133005 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="266">|  315061 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="282">-------------------------------------------------------</tspan>
 
@@ -52,21 +52,28 @@
 
 <tspan x="10" y="458">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="474"></tspan>
+<tspan x="10" y="474">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="490">L, like Gecko) Chrome/58.0.3029.110 Electron/1.7.15 Safari/537.36 - 2018-06-10T18:40:58.075Z</tspan>
 
-<tspan x="10" y="490">created test-report file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build/test-report.html</tspan>
+<tspan x="10" y="506">|      41 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="506"></tspan>
+<tspan x="10" y="522">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="522"></tspan>
+<tspan x="10" y="538"></tspan>
 
-<tspan x="10" y="538">buildApidoc - 0 failed tests</tspan>
-
-<tspan x="10" y="554"></tspan>
+<tspan x="10" y="554">created test-report file /home/travis/build/npmdoc/node-npmdoc-debug/tmp/build/test-report.html</tspan>
 
 <tspan x="10" y="570"></tspan>
 
-<tspan x="10" y="586">[MODE_BUILD=buildApidoc] - 2018-06-10T18:38:15.306Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="586"></tspan>
+
+<tspan x="10" y="602">buildApidoc - 0 failed tests</tspan>
+
+<tspan x="10" y="618"></tspan>
+
+<tspan x="10" y="634"></tspan>
+
+<tspan x="10" y="650">[MODE_BUILD=buildApidoc] - 2018-06-10T18:41:17.362Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
